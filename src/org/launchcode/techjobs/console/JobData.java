@@ -139,16 +139,15 @@ public class JobData {
         String lowcase = value.toLowerCase();
 
         for (HashMap<String, String> row : allJobs) {
-            if (!jobs.contains(row)) {
-                for (String field : row.values()) {
-                    String aValue = field;
-                    String lowerCase = value.toLowerCase();
-                    if (lowerCase.contains(lowcase)) {
-                        jobs.add(row);
+            for (String field : row.values()) {
+                String aValue = field;
+                String lowerCase = aValue.toLowerCase();
+                if (lowerCase.contains(lowcase)) {
+                    jobs.add(row);
+                    break;
                     }
                 }
             }
-        }
         return jobs;
 
     }
