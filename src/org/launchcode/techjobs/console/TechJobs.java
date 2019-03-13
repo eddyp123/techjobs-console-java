@@ -110,10 +110,13 @@ public class TechJobs {
 
     // Print a list of jobs
     private static void printJobs(ArrayList<HashMap<String, String>> someJobs) {
+        //if there are no jobs in HashMap someJobs, print error message
         if (someJobs.size()==0){
-            System.out.println("NO results found");
-        }
+            System.out.println("No results found");
+        }//find out out to display searchterm variable in line 61 in error message
 
+        //like in the GradebookHashMap method in java-exercises, iterate through the HashMap
+        //and print out the results by getting each Key and getting each Value
         for (HashMap<String, String> job : someJobs){
             System.out.println("*****");
             for (Map.Entry<String, String> heading : job.entrySet()){

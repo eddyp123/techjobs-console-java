@@ -132,24 +132,27 @@ public class JobData {
         }
     }
 
+    //search for job value in CSV file columns
     public static ArrayList<HashMap<String, String>> findByValue(String value) {
         loadData();
 
+        /**much like findByColumnAndValue. Create jobs HashMap and take the passed in
+        value object and convert to lowercase so we can compare to CSV file values*/
         ArrayList<HashMap<String, String>> jobs = new ArrayList<>();
         String lowcase = value.toLowerCase();
 
+        /**for each row in allJobs, loop through each row again, taking each value of the row
+        converting toLowerCase(), and adding it if the values in the row contain the same
+        sequence of characters that we passed into the method. Then our new jobs ArrayList
+        is populated with each row we add when the specific value is found.*/
         for (HashMap<String, String> row : allJobs) {
-            for (String field : row.values()) {
-                String aValue = field;
-                String lowerCase = aValue.toLowerCase();
-                if (lowerCase.contains(lowcase)) {
+            for (String field : row.values()){
+                String aValue = field.toLowerCase();
+                if (aValue.contains(aValue)){
                     jobs.add(row);
-                    break;
-                    }
                 }
             }
-        return jobs;
-
+        }return jobs;
     }
 }
 
